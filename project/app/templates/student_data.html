@@ -1,0 +1,20 @@
+<h1> Add Data </h1>
+<form action="{% url 'stu_insert' %}" method='post'>
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td>stu_name:</td>
+            <td><input type='text' name='stu_name' required></td>
+        </tr>
+        <tr>
+            <td>stu_email:</td>
+            <td><input type='email' name='stu_email' required></td>
+        </tr>
+        <tr>
+            <td>stu_layer:</td>
+            <td><input type='tel' name='stu_layer' required></td>
+        </tr>
+            <td>Add_Data</td>
+            <td><input type='submit' value='Add_Stu'></td>
+        </tr>
+</form>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home Page</title>
+    </head>
+    <body>
+        <h1> Student Details Page </h1>
+        <div>
+            <form action="{% url 'add_data' %}" method="GET">
+                {% csrf_token %}
+                <table>
+                    <tr>
+                        <td><input type='submit' value='add_new_data'></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div class='container'>
+            <div>
+                <form action="{% url 'injest' %}" method="post">
+                    {% csrf_token %}
+                    <table>
+                        <tr>
+                            <td><button value='injest'></button></td>
+                            <td><button value='Pre-conform'></button></td>
+                            <td><button value='conform'></button></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <table border="1">
+            <tr>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Layer</td>
+            </tr>
+            {% for i in key1 %}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.stu_name}}</td>
+                <td>{{i.stu_email}}</td>
+                <td>{{i.stu_layer}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
